@@ -2,10 +2,10 @@ import PropTypes from 'prop-types'
 import s from './TransactionHistory.module.css'
 
 const TransactionHistoryItem = (props) => {
-    const { id, type, amount, currency } = props;
+    const { type, amount, currency } = props;
 
     return (
-        <tr key={id}>
+        <tr>
             <td className={s.item}>{type}</td>
             <td className={s.item}>{amount}</td>
             <td className={s.item}>{currency}</td>

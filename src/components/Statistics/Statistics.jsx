@@ -1,21 +1,17 @@
-import s from './Statistics.module.css'
 import SatisticsItem from './SatisticsItem'
-import stats from '../../data/data.json'
+import s from './Statistics.module.css'
 
-const Statistics = () => {
+const Statistics = ({ stats, title }) => {
   return (
-      <>
-      <p>Task Statistic</p>
       <section className={s.statistics}>
-        <h2 className={s.title}>Upload stats</h2>
+        {title && <h2 className={s.title}>{title}</h2>}
         <ul className={s.statList}>
-          {stats.map(({ id, ...rest }) => (
-            <SatisticsItem key={id} {...rest} />
+          {stats.map(({ id, label, percentage }) => (
+            <SatisticsItem key={id} label={label} percentage={percentage} />
           ))}
           
         </ul>
       </section>
-      </>
     );
 };
 

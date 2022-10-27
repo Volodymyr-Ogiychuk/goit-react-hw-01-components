@@ -1,14 +1,9 @@
 import PropTypes from 'prop-types'
 import s from './Profile.module.css'
-import user from '../../data/user.json'
 
-console.log('user', user);
-
-const Profile = () => {
-    const { avatar, username, tag, location, stats: { followers, views, likes }, } = user;
+const Profile = (props) => {
+    const { avatar, username, tag, location, stats: { followers, views, likes }, } = props;
     return (
-        <>
-        <p>Task Profile</p>
         <div className={s.profile}>
             <div className={s.description}>
                 
@@ -37,12 +32,21 @@ const Profile = () => {
             </li>
         </ul>
     </div>
-    </>
     );
 };
 
-Profile.propTypes = { 
-    user: PropTypes.object
+Profile.propTypes = {
+    user: PropTypes.shape({
+        avatar: PropTypes.string.isRequired,
+        username: PropTypes.string.isRequired,
+        tag: PropTypes.string.isRequired,
+        location: PropTypes.string.isRequired,
+        stats: PropTypes.shape({
+            followers: PropTypes.string.isRequired,
+            views: PropTypes.string.isRequired,
+            likes: PropTypes.string.isRequired,
+        })
+    })
 }
 
 export default Profile;

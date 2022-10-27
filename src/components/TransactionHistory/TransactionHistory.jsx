@@ -1,13 +1,11 @@
 import s from './TransactionHistory.module.css'
-import items from '../../data/transactions.json'
 import TransactionHistoryItem from './TransactionHistoryItem'
 
-const TransactionHistory = ( ) => {
+const TransactionHistory = ({ items }) => {
 
   return (
-    <>
-      <p>Task Transaction History</p>
-      <table className={s.transactionHistory}>
+
+  <table className={s.transactionHistory}>
   <thead className={s.head}>
     <tr>
       <th>Type</th>
@@ -17,15 +15,11 @@ const TransactionHistory = ( ) => {
   </thead>
 
   <tbody>
-    
-      {items.map(({ id, ...rest }) => (
-        <TransactionHistoryItem key={id} {...rest} />
-    ))}
-    
-    
+    {items.map(({ id, type, amount, currency }) => (
+    <TransactionHistoryItem key={id} type={type} amount={amount} currency={currency} />
+    ))}  
   </tbody>
       </table>
-      </>
     );
 };
 

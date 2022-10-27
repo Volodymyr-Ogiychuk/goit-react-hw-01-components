@@ -8,8 +8,7 @@ const StatisticsItem = (props) => {
         <li key={id} className={s.item}>
             <span className={s.label}>{label}</span>
             <span className={s.percentage}>{percentage}</span>
-        </li>
-        
+        </li>    
     )
 }
 
