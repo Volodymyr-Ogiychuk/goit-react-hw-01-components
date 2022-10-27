@@ -1,0 +1,12 @@
+.transactionHistory {
+    width: 700px;
+}
+
+.head {
+    background-color: green;
+    outline: 2px solid black;
+}
+
+.item {
+    outline: 2px solid black;
+}
