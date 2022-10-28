@@ -5,8 +5,7 @@ const Profile = (props) => {
     const { avatar, username, tag, location, stats: { followers, views, likes }, } = props;
     return (
         <div className={s.profile}>
-            <div className={s.description}>
-                
+            <div className={s.description}>   
             <img
                 src={avatar}
                 alt="User avatar"
@@ -36,17 +35,15 @@ const Profile = (props) => {
 };
 
 Profile.propTypes = {
-    user: PropTypes.shape({
-        avatar: PropTypes.string.isRequired,
-        username: PropTypes.string.isRequired,
-        tag: PropTypes.string.isRequired,
-        location: PropTypes.string.isRequired,
-        stats: PropTypes.shape({
-            followers: PropTypes.string.isRequired,
-            views: PropTypes.string.isRequired,
-            likes: PropTypes.string.isRequired,
-        })
-    })
-}
+    avatar: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
+    tag: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    stats: PropTypes.shape({
+        followers: PropTypes.number.isRequired,
+        views: PropTypes.number.isRequired,
+        likes: PropTypes.number.isRequired,
+    }).isRequired,
+};
 
 export default Profile;
